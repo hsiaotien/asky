@@ -1,6 +1,5 @@
 package jackjson;
 
-import com.alibaba.fastjson.JSONArray;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -11,7 +10,6 @@ import fastjson.pojo.DepthPriceVolume;
 import jackjson.pojo.User;
 import org.apache.commons.collections.IteratorUtils;
 import org.junit.Test;
-import org.springframework.boot.json.JacksonJsonParser;
 
 import java.io.IOException;
 import java.util.ArrayList;
