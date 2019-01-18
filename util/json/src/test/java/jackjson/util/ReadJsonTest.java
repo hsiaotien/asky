@@ -12,6 +12,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.File;
+import java.io.InputStream;
 import java.net.URL;
 
 /**
@@ -63,6 +64,21 @@ public class ReadJsonTest {
             File file = res.getFile();
             // 上述已经解耦，spring-boot 有更方便的方式
             TestObj testObj = mapper.readValue(file, TestObj.class);
+            Assert.assertEquals("abc",testObj.getApiKey());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /** 另外一种方式, 读流 */
+    @Test
+    public void testReadJson04() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            ClassLoader classLoader = this.getClass().getClassLoader();
+            InputStream in = classLoader.getResourceAsStream("test.json");
+            // 上述已经解耦，spring-boot 有更方便的方式
+            TestObj testObj = mapper.readValue(in, TestObj.class);
             Assert.assertEquals("abc",testObj.getApiKey());
         } catch (Exception e) {
             e.printStackTrace();
